@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/Levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/DumbEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Levels/Path2D3.gd" type="Script" id=3]
+[ext_resource path="res://src/Levels/Path2D.gd" type="Script" id=4]
+[ext_resource path="res://src/Levels/Path2D2.gd" type="Script" id=5]
+[ext_resource path="res://src/Levels/Path2D4.gd" type="Script" id=6]
+[ext_resource path="res://src/Items/Coin.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1632.65, -37.9685, 0, 0, 0, 0, 1620.5, -842.287, 0, 0, 0, 0, -1645.66, -831.472, 0, 0, 0, 0, -1645.66, 837.659, 0, 0, 0, 0, 1631.32, 837.659, 0, 0, 0, 0, 1632.54, -37.6556, 0, 0, 0, 0, 1632.65, -37.9685 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 319.886, 516.635, 0, 0, 0, 0, 1312.42, 511.852, 0, 0, 0, 0, 1317.2, -43.0115, 0, 0, 0, 0, 1309.68, -524.798, 0, 0, 0, 0, -38.5989, -524.798, 0, 0, 0, 0, -49.3748, -526.405, 0, 0, 0, 0, -1329.16, -515.59, 0, 0, 0, 0, -1321.95, 526.264, 0, 0, 0, 0, 319.886, 516.635 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -45.4426, -681.273, 0, 0, 0, 0, -1478.67, -673.588, 0, 0, 0, 0, -1482.51, 678.945, 0, 0, 0, 0, 1472.31, 686.63, 0, 0, 0, 0, 1476.16, -688.958, 0, 0, 0, 0, -45.4426, -681.273 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1171.27, -43.4304, 0, 0, 0, 0, -1171.27, -358.509, 0, 0, 0, 0, 1149.55, -354.667, 0, 0, 0, 0, 1153.39, -35.7456, 0, 0, 0, 0, 1149.55, -39.588, 0, 0, 0, 0, 1145.71, 356.182, 0, 0, 0, 0, -1159.75, 356.182, 0, 0, 0, 0, -1171.27, -39.588 )
+}
+
+[node name="LevelTemplate" instance=ExtResource( 1 )]
+
+[node name="Player" parent="." index="1"]
+position = Vector2( -34, -30 )
+
+[node name="Camera2D" parent="." index="2"]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="." index="3"]
+curve = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="follow" type="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2( 1632.65, -37.9685 )
+rotation = -1.58587
+
+[node name="DumbEnemy" parent="Path2D/follow" index="0" instance=ExtResource( 2 )]
+
+[node name="Path2D2" type="Path2D" parent="." index="4"]
+curve = SubResource( 2 )
+script = ExtResource( 5 )
+
+[node name="follow2" type="PathFollow2D" parent="Path2D2" index="0"]
+position = Vector2( 319.886, 516.635 )
+rotation = -0.00482296
+
+[node name="DumbEnemy" parent="Path2D2/follow2" index="0" instance=ExtResource( 2 )]
+position = Vector2( -48.8032, 520.567 )
+
+[node name="Path2D3" type="Path2D" parent="." index="5"]
+curve = SubResource( 3 )
+script = ExtResource( 3 )
+
+[node name="follow3" type="PathFollow2D" parent="Path2D3" index="0"]
+position = Vector2( -45.4426, -681.273 )
+rotation = 3.13623
+
+[node name="DumbEnemy" parent="Path2D3/follow3" index="0" instance=ExtResource( 2 )]
+position = Vector2( 13.4424, -1370.01 )
+
+[node name="Path2D4" type="Path2D" parent="." index="6"]
+curve = SubResource( 4 )
+script = ExtResource( 6 )
+
+[node name="follow4" type="PathFollow2D" parent="Path2D4" index="0"]
+position = Vector2( -1171.27, -43.4304 )
+rotation = -1.57077
+
+[node name="DumbEnemy" parent="Path2D4/follow4" index="0" instance=ExtResource( 2 )]
+position = Vector2( 636.573, 2.69367 )
+
+[node name="Coin" parent="." index="7" instance=ExtResource( 7 )]
+position = Vector2( -47.5574, -356.217 )
+
+[node name="Coin2" parent="." index="8" instance=ExtResource( 7 )]
+position = Vector2( -1162.88, -354.385 )
+
+[node name="Coin3" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( -1155.98, 356.501 )
+
+[node name="Coin4" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 1466.98, -668.877 )
+
+[node name="Coin24" parent="." index="11" instance=ExtResource( 7 )]
+position = Vector2( 1615.99, -822.149 )
+
+[node name="Coin5" parent="." index="12" instance=ExtResource( 7 )]
+position = Vector2( 1154.81, 358.018 )
+
+[node name="Coin6" parent="." index="13" instance=ExtResource( 7 )]
+position = Vector2( 1147.12, -345.145 )
+
+[node name="Coin7" parent="." index="14" instance=ExtResource( 7 )]
+position = Vector2( 1308.5, -510.369 )
+
+[node name="Coin8" parent="." index="15" instance=ExtResource( 7 )]
+position = Vector2( 1296.98, 523.243 )
+
+[node name="Coin9" parent="." index="16" instance=ExtResource( 7 )]
+position = Vector2( -1312.03, 519.4 )
+
+[node name="Coin10" parent="." index="17" instance=ExtResource( 7 )]
+position = Vector2( -1312.03, -506.527 )
+
+[node name="Coin11" parent="." index="18" instance=ExtResource( 7 )]
+position = Vector2( -1477.25, -667.909 )
+
+[node name="Coin12" parent="." index="19" instance=ExtResource( 7 )]
+position = Vector2( -1634.79, -821.606 )
+
+[node name="Coin13" parent="." index="20" instance=ExtResource( 7 )]
+position = Vector2( -1723.17, -990.672 )
+
+[node name="Coin15" parent="." index="21" instance=ExtResource( 7 )]
+position = Vector2( 1696.59, -994.515 )
+
+[node name="Coin16" parent="." index="22" instance=ExtResource( 7 )]
+position = Vector2( 1800.33, -909.982 )
+
+[node name="Coin17" parent="." index="23" instance=ExtResource( 7 )]
+position = Vector2( 1791.82, 907.985 )
+
+[node name="Coin18" parent="." index="24" instance=ExtResource( 7 )]
+position = Vector2( 1706.67, 997.393 )
+
+[node name="Coin19" parent="." index="25" instance=ExtResource( 7 )]
+position = Vector2( -1716.39, 997.393 )
+
+[node name="Coin20" parent="." index="26" instance=ExtResource( 7 )]
+position = Vector2( -1631.24, 835.607 )
+
+[node name="Coin21" parent="." index="27" instance=ExtResource( 7 )]
+position = Vector2( -1482.22, 682.336 )
+
+[node name="Coin22" parent="." index="28" instance=ExtResource( 7 )]
+position = Vector2( 1630.03, 827.092 )
+
+[node name="Coin23" parent="." index="29" instance=ExtResource( 7 )]
+position = Vector2( 1463.99, 682.336 )
+
+[node name="Coin14" parent="." index="30" instance=ExtResource( 7 )]
+position = Vector2( -1807.7, -906.139 )
